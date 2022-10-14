@@ -10,7 +10,20 @@ data class Pub(
 }
 
 data class Tags(
-    var nameShop: String? = null) {
+    var name: String? = null,
+    var email: String? = null,
+    var phone: String? = null,
+    var website: String? = null,
+    var address: Address? = null) {
+
+}
+
+data class Address(
+    var city: String? = null,
+    var street: String? = null,
+    var streetNumber: String? = null,
+    var postCode: String? = null
+){
 
 }
 

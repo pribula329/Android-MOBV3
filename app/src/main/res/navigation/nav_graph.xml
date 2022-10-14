@@ -31,6 +31,15 @@
         <argument
             android:name="gpsL"
             app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="phone"
+            app:argType="string" />
+        <argument
+            android:name="website"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/listPubFragment"

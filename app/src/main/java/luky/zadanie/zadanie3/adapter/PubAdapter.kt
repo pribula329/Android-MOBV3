@@ -28,13 +28,17 @@ class PubAdapter(private val context: Context, private val dataset: List<Pub>): 
 
     override fun onBindViewHolder(holder: PubViewHolder, position: Int) {
         val item = dataset[position]
-        holder.button.text = item.tags.nameShop
+        holder.button.text = item.tags.name
         holder.button.setOnClickListener {
             val action = PubListFragmentDirections.actionListPubFragmentToShowFragment(
                 name = "Ahoj",
-                shopName = item.tags.nameShop.toString(),
+                shopName = item.tags.name.toString(),
                 gpsH = item.lat.toString(),
-                gpsL = item.lon.toString())
+                gpsL = item.lon.toString(),
+                email = item.tags.email.toString(),
+                phone = item.tags.phone.toString(),
+                website = item.tags.website.toString()
+            )
             holder.view.findNavController().navigate(action)
         }
     }

@@ -12,12 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.airbnb.lottie.LottieAnimationView
 import luky.zadanie.zadanie3.databinding.FragmentShowBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val NAME = "name"
-private const val SHOP = "shop"
-private const val GPS_HEIGHT = "gpsHeight"
-private const val GPS_LENGHT = "gpsLenght"
+
 
 /**
  * A simple [Fragment] subclass.
@@ -35,11 +30,19 @@ class ShowFragment : Fragment() {
         const val SHOP = "shopName"
         const val GPS_HEIGHT = "gpsH"
         const val GPS_LENGHT = "gpsL"
+        const val EMAIL = "email"
+        const val PHONE = "phone"
+        const val WEBSITE = "website"
+        //TODO: adress
     }
     private lateinit var name: String
     private lateinit var shop: String
     private lateinit var gpsHeight: String
     private lateinit var gpsLenght: String
+    private lateinit var emailShow: String
+    private lateinit var phoneShow: String
+    private lateinit var websiteShow: String
+
     private var _binding: FragmentShowBinding? = null
     private val binding get() = _binding!!
 
@@ -58,6 +61,10 @@ class ShowFragment : Fragment() {
             println(gpsHeight)
             gpsLenght = it.getString(GPS_LENGHT).toString()
             println(gpsLenght)
+            emailShow = it.getString(EMAIL).toString()
+            phoneShow = it.getString(PHONE).toString()
+            websiteShow = it.getString(WEBSITE).toString()
+
         }
 
 
@@ -78,6 +85,9 @@ class ShowFragment : Fragment() {
         startAnimation()
         binding.nameView.text = name
         binding.shopView.text = shop
+        binding.emailView.text = emailShow
+        binding.phoneView.text = phoneShow
+        binding.websiteView.text = websiteShow
         binding.showButton.setOnClickListener {
             val gmmIntentUri = Uri.parse("geo:${gpsHeight.toDouble()},${gpsLenght.toDouble()}")
             println(gmmIntentUri)

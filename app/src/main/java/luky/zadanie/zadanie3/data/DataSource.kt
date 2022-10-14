@@ -34,8 +34,8 @@ class DataSource(private val context: Context){
 
 
         val elements: List<Pub> = Gson().fromJson(jsonData, Array<Pub>::class.java).toList()
+        println(elements)
 
-        
         return elements
 
     }

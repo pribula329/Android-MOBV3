@@ -48,7 +48,7 @@ class PubListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.recycleView
         val myDataset = DataSource(view.context).loadDataPubs()
-        recyclerView.adapter =  PubAdapter(view.context,myDataset)
+        recyclerView.adapter = PubAdapter(view.context, myDataset)
 
     }
 

@@ -44,7 +44,10 @@ class InputFragment : Fragment() {
                 name = binding.inputNameText.text.toString(),
                 shopName = binding.inputShopText.text.toString(),
                 gpsH = binding.inputHeightText.text.toString(),
-                gpsL = binding.inputLenghtText.text.toString() )
+                gpsL = binding.inputLenghtText.text.toString(),
+                email = "",
+                phone = "",
+                website = "")
                 view.findNavController().navigate(action)
 
             }
