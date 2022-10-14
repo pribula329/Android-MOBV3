@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Zadanie2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="meno">Vaše meno</string>
+    <string name="shop">Zadajte nazov podniku</string>
+    <string name="height">Zadajte zem. sirku</string>
+    <string name="lenght">Zadajte zem. dlzku</string>
+    <string name="buttonText">Odosli</string>
+    <string name="nameView" />
+    <string name="shopView" />
+    <string name="buttonText2">Ukaz na mape</string>
+    <string name="personIcon">personIcon</string>
+    <string name="shopIcon">shopIcon</string>
+</resources>
