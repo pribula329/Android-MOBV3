@@ -5,13 +5,32 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PubListFragment">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="669dp"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager">
 
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/userFind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:backgroundTint="#FFEB3B"
+        android:text="Vlastný podnik"
+        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded" />
+    <Button
+        android:id="@+id/sortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:backgroundTint="#FFEB3B"
+        android:text="Zoradiť"
+        tools:ignore="MissingConstraints,RtlHardcoded" />
+
 </FrameLayout>

@@ -47,7 +47,11 @@ class InputFragment : Fragment() {
                 gpsL = binding.inputLenghtText.text.toString(),
                 email = "",
                 phone = "",
-                website = "")
+                website = "",
+                city = "",
+                street = "",
+                streetNumber = "",
+                postCode = "")
                 view.findNavController().navigate(action)
 
             }

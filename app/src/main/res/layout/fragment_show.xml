@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/nameView"
             android:layout_width="278dp"
-            android:layout_height="67dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/nameView"
             android:textAlignment="center"
@@ -28,8 +28,8 @@
 
         <TextView
             android:id="@+id/shopView"
-            android:layout_width="369dp"
-            android:layout_height="113dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/shopView"
             android:textAlignment="center"
@@ -62,42 +62,113 @@
             android:text="@string/buttonText2"
             app:icon="@drawable/baseline_public_24"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/animationView"
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/phoneView"
-            android:layout_width="229dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="24dp"
-            android:text=""
+        <ScrollView
+            android:id="@+id/scrollViewButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/showButton"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/emailView"
-            android:layout_width="229dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="8dp"
-            android:text=""
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/phoneView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone"
+                    app:icon="@drawable/baseline_phone_24"
+                    tools:ignore="MissingConstraints">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/emailView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone"
+                    app:icon="@drawable/baseline_alternate_email_24"
+                    tools:ignore="MissingConstraints">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/websiteView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone"
+                    app:icon="@drawable/baseline_public_24"
+                    app:startIconContentDescription="@string/website"
+                    tools:ignore="MissingConstraints">
+
+                </Button>
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/scrollViewAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneView"
-            tools:ignore="MissingConstraints" />
-        <TextView
-            android:id="@+id/websiteView"
-            android:layout_width="229dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="8dp"
-            android:text=""
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailView"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toBottomOf="@+id/scrollViewButtons"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/cityView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    />
+                <TextView
+                    android:id="@+id/streetView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    />
+                <TextView
+                    android:id="@+id/streetNumberView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    />
+                <TextView
+                    android:id="@+id/postCodeView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    />
+
+
+            </LinearLayout>
+        </ScrollView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

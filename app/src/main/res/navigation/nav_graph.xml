@@ -40,6 +40,18 @@
         <argument
             android:name="website"
             app:argType="string" />
+        <argument
+            android:name="city"
+            app:argType="string" />
+        <argument
+            android:name="street"
+            app:argType="string" />
+        <argument
+            android:name="streetNumber"
+            app:argType="string" />
+        <argument
+            android:name="postCode"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/listPubFragment"
@@ -49,5 +61,8 @@
         <action
             android:id="@+id/action_listPubFragment_to_showFragment"
             app:destination="@id/showFragment" />
+        <action
+            android:id="@+id/action_listPubFragment_to_inputFragment"
+            app:destination="@id/inputFragment" />
     </fragment>
 </navigation>

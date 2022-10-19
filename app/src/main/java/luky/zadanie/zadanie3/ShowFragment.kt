@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.set
 import androidx.navigation.fragment.navArgs
 import com.airbnb.lottie.LottieAnimationView
 import luky.zadanie.zadanie3.databinding.FragmentShowBinding
@@ -33,6 +34,10 @@ class ShowFragment : Fragment() {
         const val EMAIL = "email"
         const val PHONE = "phone"
         const val WEBSITE = "website"
+        const val CITY = "city"
+        const val STREET = "street"
+        const val STREET_NUMBER = "streetNumber"
+        const val POST_CODE = "postCode"
         //TODO: adress
     }
     private lateinit var name: String
@@ -42,6 +47,10 @@ class ShowFragment : Fragment() {
     private lateinit var emailShow: String
     private lateinit var phoneShow: String
     private lateinit var websiteShow: String
+    private lateinit var cityShow: String
+    private lateinit var streetShow: String
+    private lateinit var streetNumberShow: String
+    private lateinit var postCodeShow: String
 
     private var _binding: FragmentShowBinding? = null
     private val binding get() = _binding!!
@@ -62,8 +71,19 @@ class ShowFragment : Fragment() {
             gpsLenght = it.getString(GPS_LENGHT).toString()
             println(gpsLenght)
             emailShow = it.getString(EMAIL).toString()
+            println(emailShow)
             phoneShow = it.getString(PHONE).toString()
+            println(phoneShow)
             websiteShow = it.getString(WEBSITE).toString()
+            println(websiteShow)
+            cityShow = it.getString(CITY).toString()
+            println(cityShow)
+            streetShow = it.getString(STREET).toString()
+            println(streetShow)
+            streetNumberShow = it.getString(STREET_NUMBER).toString()
+            println(streetNumberShow)
+            postCodeShow = it.getString(POST_CODE).toString()
+            println(postCodeShow)
 
         }
 
@@ -83,11 +103,7 @@ class ShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startAnimation()
-        binding.nameView.text = name
-        binding.shopView.text = shop
-        binding.emailView.text = emailShow
-        binding.phoneView.text = phoneShow
-        binding.websiteView.text = websiteShow
+        textInformation()
         binding.showButton.setOnClickListener {
             val gmmIntentUri = Uri.parse("geo:${gpsHeight.toDouble()},${gpsLenght.toDouble()}")
             println(gmmIntentUri)
@@ -97,6 +113,23 @@ class ShowFragment : Fragment() {
             mapIntent.setPackage("com.google.android.apps.maps")
             // Attempt to start an activity that can handle the Intent
             startActivity(mapIntent)
+        }
+
+        binding.websiteView.setOnClickListener {
+            val webUri = Uri.parse(websiteShow)
+            val websiteIntent = Intent(Intent.ACTION_VIEW, webUri)
+            startActivity(websiteIntent)
+        }
+
+        binding.phoneView.setOnClickListener {
+            val phoneUri = Uri.parse("tel:$phoneShow")
+            val phoneIntent = Intent(Intent.ACTION_DIAL, phoneUri)
+            startActivity(phoneIntent)
+        }
+        binding.emailView.setOnClickListener {
+            val emailUri = Uri.parse("mailto:$emailShow")
+            val emailIntent = Intent(Intent.ACTION_SENDTO, emailUri)
+            startActivity(emailIntent)
         }
 
 
@@ -129,4 +162,40 @@ class ShowFragment : Fragment() {
 
 
     }
+
+    private fun textInformation(){
+        binding.nameView.text = name
+        binding.shopView.text = shop
+        if (!emailShow.toString().equals("null")) {
+            binding.emailView.text = emailShow
+            binding.emailView.visibility = View.VISIBLE
+        }
+        if (!phoneShow.toString().equals("null")) {
+            binding.phoneView.visibility = View.VISIBLE
+            binding.phoneView.text= phoneShow
+        }
+        if (!websiteShow.toString().equals("null")) {
+            binding.websiteView.text = websiteShow
+            binding.websiteView.visibility = View.VISIBLE
+        }
+        if (!cityShow.toString().equals("null")) {
+            binding.cityView.text = cityShow
+            binding.cityView.visibility = View.VISIBLE
+        }
+        if (!streetShow.toString().equals("null")) {
+            binding.streetView.text = streetShow
+            binding.streetView.visibility = View.VISIBLE
+        }
+        if (!streetNumberShow.toString().equals("null")) {
+            binding.streetNumberView.text = streetNumberShow
+            binding.streetNumberView.visibility = View.VISIBLE
+        }
+        if (!postCodeShow.toString().equals("null")) {
+            binding.postCodeView.text = postCodeShow
+            binding.postCodeView.visibility = View.VISIBLE
+        }
+
+    }
+
+
 }

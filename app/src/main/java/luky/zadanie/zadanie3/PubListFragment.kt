@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import luky.zadanie.zadanie3.adapter.PubAdapter
 import luky.zadanie.zadanie3.data.DataSource
 import luky.zadanie.zadanie3.databinding.FragmentListPubBinding
+import luky.zadanie.zadanie3.model.Pub
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +26,8 @@ class PubListFragment : Fragment() {
     private var _binding: FragmentListPubBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
+    private lateinit var myDataset: List<Pub>
+
     private var isLinearLayoutManager = true
 
     // TODO: Rename and change types of parameters
@@ -47,8 +51,19 @@ class PubListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.recycleView
-        val myDataset = DataSource(view.context).loadDataPubs()
+        myDataset = DataSource(view.context).loadDataPubs()
         recyclerView.adapter = PubAdapter(view.context, myDataset)
+        val buttonUser = binding.userFind
+        val buttonSort = binding.sortButton
+        buttonUser.setOnClickListener {
+            val action = PubListFragmentDirections.actionListPubFragmentToInputFragment()
+            view.findNavController().navigate(action)
+        }
+
+        buttonSort.setOnClickListener {
+            val sortDataset = myDataset.sortedBy { it.tags.name }
+            recyclerView.adapter = PubAdapter(view.context, sortDataset)
+        }
 
     }
 

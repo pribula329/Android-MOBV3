@@ -1,5 +1,7 @@
 package luky.zadanie.zadanie3.model
 
+import com.google.gson.annotations.SerializedName
+
 
 data class Pub(
     var id: Long,
@@ -14,17 +16,16 @@ data class Tags(
     var email: String? = null,
     var phone: String? = null,
     var website: String? = null,
-    var address: Address? = null) {
-
-}
-
-data class Address(
+    @SerializedName("addr:city")
     var city: String? = null,
+    @SerializedName("addr:street")
     var street: String? = null,
+    @SerializedName("addr:streetnumber")
     var streetNumber: String? = null,
-    var postCode: String? = null
-){
+    @SerializedName("addr:postcode")
+    var postCode: String? = null) {
 
 }
+
 
 

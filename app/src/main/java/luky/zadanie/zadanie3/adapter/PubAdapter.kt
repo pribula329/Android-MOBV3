@@ -37,10 +37,19 @@ class PubAdapter(private val context: Context, private val dataset: List<Pub>): 
                 gpsL = item.lon.toString(),
                 email = item.tags.email.toString(),
                 phone = item.tags.phone.toString(),
-                website = item.tags.website.toString()
+                website = item.tags.website.toString(),
+                city = item.tags.city.toString(),
+                street = item.tags.street.toString(),
+                streetNumber = item.tags.streetNumber.toString(),
+                postCode = item.tags.postCode.toString()
             )
             holder.view.findNavController().navigate(action)
         }
+
+
+
+
+
     }
 
     override fun getItemCount(): Int {

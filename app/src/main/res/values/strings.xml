@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Zadanie2</string>
+    <string name="app_name">Zadanie3</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="meno">Vaše meno</string>
@@ -12,4 +12,7 @@
     <string name="buttonText2">Ukaz na mape</string>
     <string name="personIcon">personIcon</string>
     <string name="shopIcon">shopIcon</string>
+    <string name="email">email</string>
+    <string name="website">website</string>
+    <string name="phone">phone</string>
 </resources>
