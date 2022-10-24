@@ -24,7 +24,7 @@ import luky.zadanie.zadanie3.databinding.FragmentShowBinding
 
 class ShowFragment : Fragment() {
     @SuppressLint("MissingInflatedId")
-    // TODO: Rename and change types of parameters
+
 
     companion object {
         const val NAME = "name"
@@ -38,7 +38,7 @@ class ShowFragment : Fragment() {
         const val STREET = "street"
         const val STREET_NUMBER = "streetNumber"
         const val POST_CODE = "postCode"
-        //TODO: adress
+
     }
     private lateinit var name: String
     private lateinit var shop: String

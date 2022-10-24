@@ -15,4 +15,5 @@
     <string name="email">email</string>
     <string name="website">website</string>
     <string name="phone">phone</string>
+    <string name="action_sort_menu">sort</string>
 </resources>

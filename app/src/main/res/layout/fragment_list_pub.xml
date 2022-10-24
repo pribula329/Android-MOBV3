@@ -16,21 +16,16 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <Button
+    <ImageButton
         android:id="@+id/userFind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:backgroundTint="#FFEB3B"
-        android:text="Vlastný podnik"
-        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded" />
-    <Button
-        android:id="@+id/sortButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:backgroundTint="#FFEB3B"
-        android:text="Zoradiť"
-        tools:ignore="MissingConstraints,RtlHardcoded" />
-
+        android:layout_margin="16dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:contentDescription="SortMenu"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/baseline_person_24"
+        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpeakableTextPresentCheck,ImageContrastCheck" />
 </FrameLayout>
