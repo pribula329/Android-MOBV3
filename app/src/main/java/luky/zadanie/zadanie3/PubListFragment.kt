@@ -20,10 +20,9 @@ class PubListFragment : Fragment() {
     private var _binding: FragmentListPubBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private lateinit var myDataset: List<Pub>
+    private var myDataset = DataSource.element
 
     private var isSortedMenu = true
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +43,7 @@ class PubListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.recycleView
-        myDataset = DataSource(view.context).loadDataPubs()
+        //myDataset = DataSource().loadDataPubs(view.context)
         recyclerView.adapter = PubAdapter(view.context, myDataset)
         val buttonUser = binding.userFind
         buttonUser.setOnClickListener {

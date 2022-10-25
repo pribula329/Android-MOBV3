@@ -2,6 +2,7 @@ package luky.zadanie.zadanie3.data
 
 
 
+import android.content.ClipData
 import android.content.Context
 import com.airbnb.lottie.LottieCompositionFactory.fromJson
 import com.google.gson.Gson
@@ -18,9 +19,10 @@ import kotlin.reflect.typeOf
 import com.google.gson.JsonArray as JsonArray
 
 
-class DataSource(private val context: Context){
+object DataSource{
+    lateinit var element: MutableList<Pub>
 
-   fun loadDataPubs(): List<Pub> {
+    fun loadDataPubs(context: Context){
 
         val jsonData = context.resources.openRawResource(
             context.resources.getIdentifier(
@@ -29,14 +31,8 @@ class DataSource(private val context: Context){
             )
         ).bufferedReader().use { it.readText()}
 
+        element = Gson().fromJson(jsonData, Array<Pub>::class.java).toList().toMutableList()
 
-
-
-
-        val elements: List<Pub> = Gson().fromJson(jsonData, Array<Pub>::class.java).toList()
-        println(elements)
-
-        return elements
 
     }
 }

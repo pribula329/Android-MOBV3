@@ -52,6 +52,13 @@
         <argument
             android:name="postCode"
             app:argType="string" />
+        <action
+            android:id="@+id/action_showFragment_to_listPubFragment"
+            app:destination="@id/listPubFragment" />
+        <argument
+            android:name="id"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/listPubFragment"
@@ -60,7 +67,10 @@
         tools:layout="@layout/fragment_list_pub" >
         <action
             android:id="@+id/action_listPubFragment_to_showFragment"
-            app:destination="@id/showFragment" />
+            app:destination="@id/showFragment" >
+            <argument
+                android:name="id" />
+        </action>
         <action
             android:id="@+id/action_listPubFragment_to_inputFragment"
             app:destination="@id/inputFragment" />

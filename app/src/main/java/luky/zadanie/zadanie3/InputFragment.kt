@@ -41,17 +41,18 @@ class InputFragment : Fragment() {
         binding.sendButton.setOnClickListener {
             if (controlInput()){
                 val action = InputFragmentDirections.actionInputFragmentToShowFragment2(
-                name = binding.inputNameText.text.toString(),
-                shopName = binding.inputShopText.text.toString(),
-                gpsH = binding.inputHeightText.text.toString(),
-                gpsL = binding.inputLenghtText.text.toString(),
-                email = "",
-                phone = "",
-                website = "",
-                city = "",
-                street = "",
-                streetNumber = "",
-                postCode = "")
+                    id = "null",
+                    name = binding.inputNameText.text.toString(),
+                    shopName = binding.inputShopText.text.toString(),
+                    gpsH = binding.inputHeightText.text.toString(),
+                    gpsL = binding.inputLenghtText.text.toString(),
+                    email = "null",
+                    phone = "null",
+                    website = "null",
+                    city = "null",
+                    street = "null",
+                    streetNumber = "null",
+                    postCode = "null")
                 view.findNavController().navigate(action)
 
             }

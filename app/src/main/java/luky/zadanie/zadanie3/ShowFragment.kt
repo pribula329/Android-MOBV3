@@ -9,8 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.set
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.airbnb.lottie.LottieAnimationView
+import luky.zadanie.zadanie3.data.DataSource
 import luky.zadanie.zadanie3.databinding.FragmentShowBinding
 
 
@@ -27,6 +29,7 @@ class ShowFragment : Fragment() {
 
 
     companion object {
+        const val ID = "id"
         const val NAME = "name"
         const val SHOP = "shopName"
         const val GPS_HEIGHT = "gpsH"
@@ -40,6 +43,7 @@ class ShowFragment : Fragment() {
         const val POST_CODE = "postCode"
 
     }
+    private lateinit var id: String
     private lateinit var name: String
     private lateinit var shop: String
     private lateinit var gpsHeight: String
@@ -62,6 +66,8 @@ class ShowFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            id = it.getString(ID).toString()
+            println(id)
             name = it.getString(NAME).toString()
             println(name)
             shop = it.getString(SHOP).toString()
@@ -133,6 +139,26 @@ class ShowFragment : Fragment() {
         }
 
 
+
+        binding.deleteButton.setOnClickListener{
+            val action = ShowFragmentDirections.actionShowFragmentToListPubFragment()
+            view.findNavController().navigate(action)
+            var deleteId: Int? = null
+            for (i in 0..DataSource.element.size){
+                if (DataSource.element.get(i).id==id.toLong()){
+                    deleteId = i
+                    break
+                }
+            }
+            println("dostal som sa sem")
+            println(id.toString())
+            println(deleteId)
+            if (deleteId!=null){
+                DataSource.element.removeAt(deleteId)
+            }
+
+        }
+
     }
 
     override fun onDestroyView() {
@@ -142,10 +168,10 @@ class ShowFragment : Fragment() {
 
 
     private fun startAnimation(){
-        val screen: View? = binding.showScreen
+        val screen: View = binding.showScreen
         val animationCoctail : LottieAnimationView = binding.animationView
         animationCoctail.playAnimation()
-        screen?.setOnClickListener {
+        screen.setOnClickListener {
             stopAndPlayAnimation()
         }
     }
@@ -193,6 +219,9 @@ class ShowFragment : Fragment() {
         if (!postCodeShow.toString().equals("null")) {
             binding.postCodeView.text = postCodeShow
             binding.postCodeView.visibility = View.VISIBLE
+        }
+        if (!id.toString().equals("null")) {
+            binding.deleteButton.visibility = View.VISIBLE
         }
 
     }

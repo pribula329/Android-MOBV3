@@ -16,4 +16,5 @@
     <string name="website">website</string>
     <string name="phone">phone</string>
     <string name="action_sort_menu">sort</string>
+    <string name="DELETE">delete</string>
 </resources>

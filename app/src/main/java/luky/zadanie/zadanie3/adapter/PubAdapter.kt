@@ -31,6 +31,7 @@ class PubAdapter(private val context: Context, private val dataset: List<Pub>): 
         holder.button.text = item.tags.name
         holder.button.setOnClickListener {
             val action = PubListFragmentDirections.actionListPubFragmentToShowFragment(
+                id = item.id.toString(),
                 name = "Ahoj",
                 shopName = item.tags.name.toString(),
                 gpsH = item.lat.toString(),
