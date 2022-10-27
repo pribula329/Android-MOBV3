@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import androidx.navigation.findNavController
-import luky.zadanie.zadanie3.PubListFragmentDirections
 import luky.zadanie.zadanie3.R
+import luky.zadanie.zadanie3.fragment.PubListFragmentDirections
 import luky.zadanie.zadanie3.model.Pub
 
 class PubAdapter(private val context: Context, private val dataset: List<Pub>): RecyclerView.Adapter<PubAdapter.PubViewHolder>() {
 
     //class for ViewHolder
     class PubViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val button = view.findViewById<Button>(R.id.button_item)
+        val button = view.findViewById<Button>(R.id.button_item)!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PubViewHolder {

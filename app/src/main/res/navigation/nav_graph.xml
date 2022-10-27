@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/inputFragment"
-        android:name="luky.zadanie.zadanie3.InputFragment"
+        android:name="luky.zadanie.zadanie3.fragment.InputFragment"
         android:label="Údaje"
         tools:layout="@layout/fragment_input">
         <action
-            android:id="@+id/action_inputFragment_to_showFragment2"
-            app:destination="@id/showFragment" />
+            android:id="@+id/action_inputFragment_to_userShowFragment"
+            app:destination="@id/userShowFragment" />
     </fragment>
     <fragment
         android:id="@+id/showFragment"
-        android:name="luky.zadanie.zadanie3.ShowFragment"
+        android:name="luky.zadanie.zadanie3.fragment.ShowFragment"
         android:label="Výsledok"
         tools:layout="@layout/fragment_show">
         <argument
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/listPubFragment"
-        android:name="luky.zadanie.zadanie3.PubListFragment"
+        android:name="luky.zadanie.zadanie3.fragment.PubListFragment"
         android:label="fragment_list_pub"
         tools:layout="@layout/fragment_list_pub" >
         <action
@@ -74,5 +74,26 @@
         <action
             android:id="@+id/action_listPubFragment_to_inputFragment"
             app:destination="@id/inputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userShowFragment"
+        android:name="luky.zadanie.zadanie3.fragment.UserShowFragment"
+        android:label="fragment_user_show"
+        tools:layout="@layout/fragment_user_show" >
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="userShopName"
+            app:argType="string" />
+        <argument
+            android:name="userGpsH"
+            app:argType="float" />
+        <argument
+            android:name="userGpsL"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_userShowFragment_to_listPubFragment"
+            app:destination="@id/listPubFragment" />
     </fragment>
 </navigation>

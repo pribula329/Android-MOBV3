@@ -7,9 +7,7 @@ data class Pub(
     var id: Long,
     var lat: Double,
     var lon: Double,
-    var tags: Tags) {
-
-}
+    var tags: Tags)
 
 data class Tags(
     var name: String? = null,
@@ -23,9 +21,7 @@ data class Tags(
     @SerializedName("addr:streetnumber")
     var streetNumber: String? = null,
     @SerializedName("addr:postcode")
-    var postCode: String? = null) {
-
-}
+    var postCode: String? = null)
 
 
 

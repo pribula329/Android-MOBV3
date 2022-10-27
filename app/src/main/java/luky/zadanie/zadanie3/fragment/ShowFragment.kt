@@ -1,4 +1,4 @@
-package luky.zadanie.zadanie3
+package luky.zadanie.zadanie3.fragment
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,20 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.text.set
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import com.airbnb.lottie.LottieAnimationView
 import luky.zadanie.zadanie3.data.DataSource
 import luky.zadanie.zadanie3.databinding.FragmentShowBinding
 
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ShowFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 
 
 class ShowFragment : Fragment() {
@@ -60,9 +53,6 @@ class ShowFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-
-    private val args: ShowFragmentArgs by navArgs()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -99,11 +89,10 @@ class ShowFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentShowBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -145,14 +134,12 @@ class ShowFragment : Fragment() {
             view.findNavController().navigate(action)
             var deleteId: Int? = null
             for (i in 0..DataSource.element.size){
-                if (DataSource.element.get(i).id==id.toLong()){
+                if (DataSource.element[i].id==id.toLong()){
                     deleteId = i
                     break
                 }
             }
-            println("dostal som sa sem")
-            println(id.toString())
-            println(deleteId)
+
             if (deleteId!=null){
                 DataSource.element.removeAt(deleteId)
             }
@@ -172,12 +159,11 @@ class ShowFragment : Fragment() {
         val animationCoctail : LottieAnimationView = binding.animationView
         animationCoctail.playAnimation()
         screen.setOnClickListener {
-            stopAndPlayAnimation()
+            stopAndPlayAnimation(animationCoctail)
         }
     }
 
-    private fun stopAndPlayAnimation(){
-        val animationCoctail : LottieAnimationView = binding.animationView
+    private fun stopAndPlayAnimation(animationCoctail: LottieAnimationView){
 
         if (animationCoctail.isAnimating){
             animationCoctail.pauseAnimation()
@@ -192,35 +178,35 @@ class ShowFragment : Fragment() {
     private fun textInformation(){
         binding.nameView.text = name
         binding.shopView.text = shop
-        if (!emailShow.toString().equals("null")) {
+        if (emailShow != "null") {
             binding.emailView.text = emailShow
             binding.emailView.visibility = View.VISIBLE
         }
-        if (!phoneShow.toString().equals("null")) {
+        if (phoneShow != "null") {
             binding.phoneView.visibility = View.VISIBLE
             binding.phoneView.text= phoneShow
         }
-        if (!websiteShow.toString().equals("null")) {
+        if (websiteShow != "null") {
             binding.websiteView.text = websiteShow
             binding.websiteView.visibility = View.VISIBLE
         }
-        if (!cityShow.toString().equals("null")) {
+        if (cityShow != "null") {
             binding.cityView.text = cityShow
             binding.cityView.visibility = View.VISIBLE
         }
-        if (!streetShow.toString().equals("null")) {
+        if (streetShow != "null") {
             binding.streetView.text = streetShow
             binding.streetView.visibility = View.VISIBLE
         }
-        if (!streetNumberShow.toString().equals("null")) {
+        if (streetNumberShow != "null") {
             binding.streetNumberView.text = streetNumberShow
             binding.streetNumberView.visibility = View.VISIBLE
         }
-        if (!postCodeShow.toString().equals("null")) {
+        if (postCodeShow != "null") {
             binding.postCodeView.text = postCodeShow
             binding.postCodeView.visibility = View.VISIBLE
         }
-        if (!id.toString().equals("null")) {
+        if (id != "null") {
             binding.deleteButton.visibility = View.VISIBLE
         }
 

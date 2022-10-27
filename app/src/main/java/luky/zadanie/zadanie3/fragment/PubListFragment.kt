@@ -1,21 +1,17 @@
-package luky.zadanie.zadanie3
+package luky.zadanie.zadanie3.fragment
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import luky.zadanie.zadanie3.R
 import luky.zadanie.zadanie3.adapter.PubAdapter
 import luky.zadanie.zadanie3.data.DataSource
 import luky.zadanie.zadanie3.databinding.FragmentListPubBinding
-import luky.zadanie.zadanie3.model.Pub
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@Suppress("DEPRECATION")
 class PubListFragment : Fragment() {
     private var _binding: FragmentListPubBinding? = null
     private val binding get() = _binding!!
@@ -28,17 +24,15 @@ class PubListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        println("publistfragment")
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentListPubBinding.inflate(inflater, container, false)
-        val view = binding.root
 
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,10 +52,17 @@ class PubListFragment : Fragment() {
         _binding = null
     }
 
+
+    @Deprecated("Deprecated in Java", ReplaceWith(
+        "inflater.inflate(R.menu.layout_menu, menu)",
+        "luky.zadanie.zadanie3.R"
+    )
+    )
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.layout_menu, menu)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_sort_menu -> {
